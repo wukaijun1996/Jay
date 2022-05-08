@@ -1,0 +1,44 @@
+
+
+
+JRE java运行环境
+JVM  java虚拟机
+JDK  java开发工具包
+
+新建用户变量：
+JAVA_HOME
+C:\Program Files\Java\jdk1.8.0_181
+
+编辑环境变量：在path下
+%JAVA_HOME%\bin
+%JAVA_HOME%\bin
+%JAVA_HOME%\bin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
