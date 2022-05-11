@@ -1,4 +1,5 @@
 package src.java.test2;
+import java.lang.Object;
 
 public class Customer {
     private String firstname;

@@ -14,8 +14,8 @@ public class CustomerView {
     private CustomerList customerList = new CustomerList(10);
 
     public CustomerView() {
-//        Customer customer = new Customer("张文强",'男',23,"13125898523","zwq@163.com");
-//        customerList.addCustomer(customer);
+        Customer customer = new Customer("张文强",'男',23,"13125898523","zwq@163.com");
+        customerList.addCustomer(customer);
     }
 
     /**
@@ -90,7 +90,7 @@ public class CustomerView {
     /**
      * 修改客户的操作
      */
-    private void modifyCustomer() {
+    private void modifyCustomer () {
 //        System.out.println("修改客户的操作");
         System.out.println("-------------------------修改客户-----------------------");
         Customer cust;
