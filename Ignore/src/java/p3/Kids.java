@@ -1,6 +1,6 @@
 package src.java.p3;
 
-public class Kids extends ManKind{
+public class Kids extends ManKind {
     private int yearsOld;
 
     public void printAge() {
@@ -20,5 +20,16 @@ public class Kids extends ManKind{
 
     public void setYearsOld(int yearsOld) {
         this.yearsOld = yearsOld;
+    }
+
+    public void employeed() {
+//        if (salary == 0){
+//            System.out.println("no job");
+//        }else if(salary != 0){
+//            System.out.println("job");
+//        }
+
+
+        System.out.println("Kids should study and no job");
     }
 }
