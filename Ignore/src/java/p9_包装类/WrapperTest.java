@@ -16,6 +16,7 @@ public class WrapperTest {
         String str2 = "asfd12";
         boolean b1 = Boolean.parseBoolean(str2);
         System.out.println(b1);
+        System.out.println();
 
     }
 
