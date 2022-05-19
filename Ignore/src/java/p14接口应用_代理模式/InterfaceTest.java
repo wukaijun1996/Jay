@@ -1,6 +1,6 @@
-package p4;
+package src.java.p14接口应用_代理模式;
 
-import java.awt.desktop.SystemSleepEvent;
+
 
 public class InterfaceTest {
 
