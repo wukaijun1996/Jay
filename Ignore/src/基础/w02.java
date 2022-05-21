@@ -1,3 +1,5 @@
+package src.基础;
+
 public class w02 {
 
     public static void main(String[] args) {

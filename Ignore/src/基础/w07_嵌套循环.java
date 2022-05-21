@@ -1,3 +1,5 @@
+package src;
+
 public class w07_嵌套循环 {
     public static void main(String[] args) {
 
