@@ -8,7 +8,7 @@ import sun.security.krb5.internal.crypto.Des;
 
 public class TeamService {
 
-    private  static int counter = 1; //给memberId赋值使用
+    private static int counter = 1; //给memberId赋值使用
     private final int MAX_MEMBER = 5;//限制开发团队的人数
     private Programmer[] team = new Programmer[MAX_MEMBER];//保存=开发团队成员；
     private int total;//记录开发团队实际的人数；
@@ -18,7 +18,7 @@ public class TeamService {
     }
 
     public Programmer[] getTeam() {
-         Programmer[] team = new Programmer[total];
+        Programmer[] team = new Programmer[total];
         for (int i = 0; i < team.length; i++) {
             team[i] = this.team[i];
         }
@@ -28,46 +28,46 @@ public class TeamService {
     public void addMember(Employee e) throws TeamException {
 
 
-        if (total >= MAX_MEMBER){
+        if (total >= MAX_MEMBER) {
             throw new TeamException("成员已满，无法添加");
         }
-        if (!(e instanceof Programmer)){
+        if (!(e instanceof Programmer)) {
             throw new TeamException("该成员不是开发人员，无法添加");
         }
-        if (isExit(e)){
+        if (isExit(e)) {
             throw new TeamException("该成员已经存在于现有的团队中");
         }
 
-         Programmer p = (Programmer) e;
+        Programmer p = (Programmer) e;
 //       if (p.getStatus().getNAME().equals("BUSY")){
-        if ("BUSY".equals(p.getStatus().getNAME())){
+        if ("BUSY".equals(p.getStatus().getNAME())) {
             throw new TeamException("该成员已经是某团队成员");
-        }else if ("VOCATION".equals(p.getStatus().getNAME())){
+        } else if ("VOCATION".equals(p.getStatus().getNAME())) {
             throw new TeamException("该成员在休假，无法添加");
         }
 
         //获取team已有架构师 设计师 程序员的人数
-        int numOfArch = 0,numOfDes = 0,numOfPro=0;
+        int numOfArch = 0, numOfDes = 0, numOfPro = 0;
         for (int i = 0; i < total; i++) {
-            if (team[i] instanceof Architect){
+            if (team[i] instanceof Architect) {
                 numOfArch++;
-            }else if (team[i] instanceof Designer){
+            } else if (team[i] instanceof Designer) {
                 numOfDes++;
-            }else if (team[i] instanceof Programmer){
+            } else if (team[i] instanceof Programmer) {
                 numOfPro++;
             }
         }
 
-        if (p instanceof Architect){
-            if(numOfArch >= 1){
+        if (p instanceof Architect) {
+            if (numOfArch >= 1) {
                 throw new TeamException("团队中至多只能有一名架构师");
             }
-        }else if (p instanceof Designer){
-            if (numOfDes >= 2){
+        } else if (p instanceof Designer) {
+            if (numOfDes >= 2) {
                 throw new TeamException("团队中至多只能有2名设计师");
             }
-        }else if (p instanceof Programmer){
-            if (numOfPro >= 2){
+        } else if (p instanceof Programmer) {
+            if (numOfPro >= 2) {
                 throw new TeamException("团队中至多只能有3名程序员");
             }
         }
@@ -79,31 +79,51 @@ public class TeamService {
         p.setStatus(Status.BUSY);
         p.setMemberid(counter++);
 
-
-
-
-
-
-
-
-
     }
 
     /**
      * 判断指定的员工是否已经存在于现有的团队中
+     *
      * @param e
      * @return
      */
-    public boolean isExit(Employee e){
+    public boolean isExit(Employee e) {
         for (int i = 0; i < total; i++) {
-            if (team[i].getId() == e.getId()){
+            if (team[i].getId() == e.getId()) {
                 return true;
             }
         }
         return false;
     }
 
-    public void removeMember(int memberId){
+    /**
+     * 从团队中删除成员
+     *
+     * @param memberId
+     */
+    public void removeMember(int memberId) throws TeamException {
+
+        int i = 0;
+        for (; i < total; i++) {
+            if (team[i].getMemberid() == memberId) {
+                team[i].setStatus(Status.FREE);
+                break;
+            }
+        }
+
+        //未找到指定memberId的情况
+        if (i == total){
+            throw new TeamException("找不到指定memberId的员工，删除失败");
+        }
+
+        //后一个元素覆盖前一个元素，实现删除操作
+        for (int j = i; j < total -1; j++) {
+            team[j] = team[j+1];
+        }
+
+//        team[total-1] = null;
+//        total--;
+        team[--total] = null;
 
     }
 
