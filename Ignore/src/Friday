@@ -1,1 +1,555 @@
+public class Test1 {
+
+
+public Comparable getComparable(){
+//    class MyCompareable implements Comparable{
+//
+//        @Override
+//        public int compareTo(Object o) {
+//            return 0;
+//        }
+//    }
+//    return new MyCompareable();
+
+    return new Comparable() {
+        @Override
+        public int compareTo(Object o) {
+            return 0;
+        }
+    };
+
+
+}
+
+}
+
+///////////////////////////////////////////////////
+
+
+import java.util.Arrays;
+
+public class Test2 {
+    public static void main(String[] args) {
+        System.out.println("args = " + Arrays.deepToString(args));
+        System.out.println("args = " + Arrays.deepToString(args));
+        System.out.println("Test2.main");
+        System.out.println("args = " + args);
+        System.out.printf("", "saa");
+        System.out.println("daa完成");
+    }
+}
+
+
+/////////////////////////////////////////////////
+
+public class Test_守护线程 {
+
+    public static void main(String[] args) {
+        MThread2 mThread2 = new MThread2();
+        Thread t1 = new Thread(mThread2);
+        Thread t2 = new Thread(mThread2);
+        Thread t3 = new Thread(mThread2);
+
+
+//        System.out.println(t1.getPriority());
+        t1.setName("窗口1：");
+        t2.setName("窗口2：");
+        t3.setName("窗口3：");
+        t1.start();
+        t2.start();
+        t3.start();
+
+
+    }
+
+
+}
+
+
+class MThread2 implements Runnable {
+
+
+    private int ticket = 100;
+
+    @Override
+    public void run() {
+
+
+        while (true) {
+            synchronized (this) {
+            if (ticket > 0) {
+                System.out.println(Thread.currentThread().getName() + ":" + ticket);
+                ticket--;
+            } else {
+                break;
+            }
+            }
+
+        }
+    }
+}
+
+
+///////////////////////////////////////////////////////////////////
+
+public class Test_现线程安全Thread {
+
+    public static void main(String[] args) {
+
+
+        MyThread3 t1=  new MyThread3();
+        MyThread3 t2=  new MyThread3();
+        MyThread3 t3=  new MyThread3();
+
+
+
+//        System.out.println(t1.getPriority());
+        t1.setName("窗口1：");
+        t2.setName("窗口2：");
+        t3.setName("窗口3：");
+
+        t1.start();
+        t2.start();
+        t3.start();
+    }
+}
+
+class MyThread3 extends Thread {
+
+    private static int ticket = 100;
+
+//    private  static Object object = new Object();
+    @Override
+    public void run() {
+
+        while (true) {
+            synchronized (MyThread3.class) {
+            if (ticket > 0) {
+                System.out.println(Thread.currentThread().getName() + ":" + ticket);
+                ticket--;
+            } else {
+                break;
+            }
+            }
+
+        }
+    }
+
+
+}
+
+///////////////////////////////////////////////
+
+public class Test_线程安全单例模式 {
+}
+
+
+class Bank{
+
+    private Bank() {
+
+    }
+
+    private static  Bank instance = null;
+
+    public static Bank getInstance(){
+
+        if (instance == null){
+            synchronized (Bank.class){
+                if (instance == null){
+                    instance = new Bank();
+                }
+
+
+            }
+
+        }
+        return instance;
+
+
+    }
+
+
+}
+
+
+
+////////////////////////////////////////////////////////////
+
+import java.util.concurrent.locks.ReentrantLock;
+
+public class Test_线程安全同步方法Runnable {
+
+    public static void main(String[] args) {
+        MThread4 mThread4 = new MThread4();
+        Thread t1 = new Thread(mThread4);
+        Thread t2 = new Thread(mThread4);
+        Thread t3 = new Thread(mThread4);
+
+
+//        System.out.println(t1.getPriority());
+        t1.setName("窗口1：");
+        t2.setName("窗口2：");
+        t3.setName("窗口3：");
+        t1.start();
+        t2.start();
+        t3.start();
+
+        new ReentrantLock();
+
+    }
+
+
+}
+
+
+class MThread4 implements Runnable {
+
+
+    private int ticket = 1000;
+
+    @Override
+    public  void run() {
+
+
+        while (true) {
+            show();
+
+
+        }
+    }
+
+
+    private synchronized void show() {
+        //            synchronized (this) {
+        if (ticket > 0) {
+            System.out.println(Thread.currentThread().getName() + ":" + ticket);
+            ticket--;
+        }
+    }
+//            }
+}
+
+///////////////////////////////////////////////
+
+
+public class TestDemo {
+
+
+    public static void main(String[] args) {
+        //创建Thread类的匿名子类的方式
+
+        new Thread(){
+            @Override
+            public void run() {
+
+                for (int i = 0; i < 1000; i++) {
+                    if (i % 2 == 0){
+                        System.out.println(Thread.currentThread().getName()+":" + i);
+                    }
+                }
+            }
+        }.start();
+
+        new Thread(){
+            @Override
+            public void run() {
+
+                for (int i = 0; i < 1000; i++) {
+                    if (i % 2 != 0){
+                        System.out.println(Thread.currentThread().getName()+":" + i);
+                    }
+                }
+            }
+        }.start();
+
+
+    }
+
+
+
+
+}
+
+////////////////////////////////////////////////
+
+class MThread implements Runnable{
+
+
+    @Override
+    public void run() {
+
+        for (int i = 0; i < 1000; i++) {
+            if (i % 2 == 0){
+                System.out.println(Thread.currentThread().getName()+":" + i);
+            }
+        }
+    }
+}
+
+class MThread1 implements Runnable{
+
+
+    private int ticket = 100;
+    @Override
+    public void run() {
+
+
+        while (true){
+
+            if (ticket > 0){
+                System.out.println(Thread.currentThread().getName()+":" + ticket);
+                ticket--;
+            }else {
+                break;
+            }
+        }
+
+    }
+}
+
+public class TestRunnable {
+
+
+    public static void main(String[] args) {
+
+        MThread1 mThread = new MThread1();
+
+
+
+        Thread t1=  new Thread(mThread);
+        Thread t2=  new Thread(mThread);
+        Thread t3=  new Thread(mThread);
+
+
+
+        System.out.println(t1.getPriority());
+        t1.setName("窗口1：");
+        t2.setName("窗口2：");
+        t3.setName("窗口3：");
+        t1.start();
+        if (t1.isAlive()){
+            System.out.println(".");
+        }
+        t2.start();
+        t3.start();
+
+
+    }
+
+}
+
+///////////////////////////////////////////////
+
+
+
+class MyThread extends Thread {
+
+    @Override
+    public void run() {
+        super.run();
+        for (int i = 0; i < 100; i++) {
+            if (i % 2 == 0) {
+                System.out.println(Thread.currentThread().getName() + ":" + i);
+            }
+        }
+    }
+
+
+}
+
+
+class TestThread {
+    public static void main(String[] args) {
+
+        MyThread testThread = new MyThread();
+        System.out.println(testThread.getName());
+        testThread.setName("线程1：");
+        testThread.start();
+        System.out.println("hello");
+
+        Thread.currentThread().setName("线程2：");
+        for (int i = 0; i < 100; i++) {
+            if (i % 2 == 0) {
+                System.out.println(Thread.currentThread().getName() + ":" + i);
+            }
+        }
+
+    }
+}
+
+
+///////////////////////////////////////////////////
+
+package dj1;
+
+import java.util.concurrent.locks.ReentrantLock;
+
+public class LockTest {
+
+    public static void main(String[] args) {
+        Window window = new Window();
+
+        Thread t1 = new Thread(window);
+        Thread t2 = new Thread(window);
+        Thread t3 = new Thread(window);
+
+        t1.setName("窗口1：");
+        t2.setName("窗口2：");
+        t3.setName("窗口3：");
+
+        t1.start();
+        t2.start();
+        t3.start();
+    }
+
+
+}
+
+
+class Window implements Runnable {
+
+    private int ticket = 100;
+
+    private ReentrantLock lock = new ReentrantLock(true);
+
+    @Override
+    public void run() {
+
+        while (true) {
+            try {
+
+                lock.lock();
+                if (ticket > 0) {
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println(Thread.currentThread().getName() + ": 售票，票号为" + ticket);
+                    ticket--;
+                } else {
+                    break;
+                }
+            } finally {
+                lock.unlock();
+            }
+        }
+    }
+}
+
+
+////////////////////////////////////////
+
+
+package dj1;
+
+class Account {
+    private double balance;
+
+    public Account(double balance) {
+        this.balance = balance;
+    }
+
+    public synchronized void deposit(double amt) {
+        if (amt > 0) {
+
+            balance += amt;
+
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            System.out.println(Thread.currentThread().getName() + "存钱成功，余额为：" + balance);
+        }
+    }
+}
+
+class Customer extends Thread {
+
+    private Account account;
+
+    public Customer(Account account) {
+        this.account = account;
+    }
+
+    @Override
+    public void run() {
+        for (int i = 0; i < 100; i++) {
+            account.deposit(1000);
+        }
+    }
+}
+
+
+public class AccountTest {
+
+    public static void main(String[] args) {
+
+        Account account = new Account(0);
+        Customer customer1 = new Customer(account);
+        Customer customer2 = new Customer(account);
+
+        customer1.setName("甲");
+        customer2.setName("乙");
+
+        customer1.start();
+        customer2.start();
+
+    }
+}
+
+
+/////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
