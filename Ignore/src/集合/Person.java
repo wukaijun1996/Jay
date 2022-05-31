@@ -1,15 +1,15 @@
-package d_集合;
+package src.集合;
 
 import java.util.Objects;
 
-public class Persion {
+public class Person {
     private String name;
     private int age;
 
-    public Persion() {
+    public Person() {
     }
 
-    public Persion(String name, int age) {
+    public Person(String name, int age) {
         this.name = name;
         this.age = age;
     }
@@ -40,10 +40,10 @@ public class Persion {
 
     @Override
     public boolean equals(Object o) {
-        System.out.println("Person equals Method");
+        System.out.println("Person equals Method--giao");
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Persion persion = (Persion) o;
+        Person persion = (Person) o;
         return age == persion.age && Objects.equals(name, persion.name);
     }
 
