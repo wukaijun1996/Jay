@@ -47,5 +47,60 @@ public class CollectionTest {
 
 
     }
+  
+      @Test
+    public void test2() {
+        //remove(Object obj)  从当前集合中移除obj元素
+        Collection col = new ArrayList();
+        col.add(123);
+        col.add(456);
+        col.add(new String("Bob"));
+        col.add(new Persion("Giao", 20));
+        col.add(false);
+
+        System.out.println(col);
+        System.out.println(col.remove(123));
+        System.out.println(col);
+
+        //removeAll(Collection coll1)    从当前集合中移除obj中所有的元素
+        Collection coll2 = Arrays.asList(123,456);
+        col.removeAll(coll2);
+        System.out.println(col);
+
+        //retainAll()  求交集
+        col.retainAll(coll2);
+        System.out.println(col);
+
+    }
+
+        @Test
+    public void test1() {
+
+        Collection col = new ArrayList();
+        col.add(123);
+        col.add(456);
+        col.add(new String("Bob"));
+        col.add(456);
+        Persion p = new Persion("perry", 20);
+        col.add(p);
+
+        System.out.println(col);
+
+        //contains  在判断时会调用obj对象所在类的equals()方法
+        boolean contains = col.contains(123);
+        System.out.println(contains);
+        System.out.println(col.contains(new String("Bob")));
+        System.out.println(col.contains(p));
+//        System.out.println(col.contains(new Persion("perry", 20)));
+        System.out.println("===================");
+        //containsAll(Collection coll1) :判断形参coll1中的所有元素是否都存在于集合中
+        Collection coll1 = new ArrayList();
+        Collection coll2 = Arrays.asList(123,456);
+        coll1.add(123);
+        coll1.add(456);
+        System.out.println(col.containsAll(coll1));
+        System.out.println(col.containsAll(coll2));
+
+    }
 
 }
