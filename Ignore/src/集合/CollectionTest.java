@@ -4,6 +4,18 @@ import org.junit.Test;
 
 import java.util.*;
 
+/*
+  Collection接口（单列集合，用来存储一个一个的对象）
+        list接口(存储有序的 可重复的数据)
+                ArrayList,LinkedList,Vector
+        set接口（存储无序的，不可重复的数据）
+                HashSet,LinkedHashSet,TreeSet
+   Map接口（双列集合，用来存储一对一对的数据）
+        HashMap ,LinkedHashMap,TreeMap, HashTable,Properties
+                
+    
+*/
+
 public class CollectionTest {
 
     @Test
