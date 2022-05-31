@@ -7,7 +7,7 @@ import java.util.*;
 public class CollectionTest {
 
     @Test
-    public void test1(){
+    public void test1() {
 
         Collection coll = new ArrayList();
 
