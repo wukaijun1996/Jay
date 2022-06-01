@@ -77,4 +77,29 @@ public class IteratorTest {
 
 
     }
+    
+        @Test
+    public void test3() {
+
+        Collection col = new ArrayList();
+        col.add(123);
+        col.add(456);
+        col.add(new String("Bob"));
+        col.add(new Persion("Giao", 20));
+        col.add(false);
+
+        //for(集合元素的类型 局部变量 ： 集合对象)
+        //内部仍然调用了迭代器
+        for (Object obj : col) {
+            System.out.println(obj);
+        }
+
+        System.out.println("===");
+        String[] str = new String[]{"AA","BB","CC","DD"};
+        for (Object s:
+             str) {
+            System.out.println(s);
+        }
+
+    }
 }
