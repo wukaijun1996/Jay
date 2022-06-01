@@ -1,6 +1,7 @@
-package d_集合;
+package src.集合;
 
 import org.junit.Test;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,7 +20,7 @@ public class ListTest {
         list.add(123);
         list.add(456);
         list.add(new String("Bob"));
-        list.add(new Persion("Giao", 20));
+        list.add(new Person("Giao", 20));
         list.add(456);
 
         System.out.println(list);
@@ -44,7 +45,7 @@ public class ListTest {
         list.add(123);
         list.add(456);
         list.add(new String("Bob"));
-        list.add(new Persion("Giao", 20));
+        list.add(new Person("Giao", 20));
         list.add(456);
 
         //int indexOf(Object obj)在集合中首次出现的位置

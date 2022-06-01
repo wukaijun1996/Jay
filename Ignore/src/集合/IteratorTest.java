@@ -57,7 +57,7 @@ public class IteratorTest {
         col.add(123);
         col.add(456);
         col.add(new String("Bob"));
-        col.add(new Persion("Giao", 20));
+        col.add(new Person("Giao", 20));
         col.add(false);
 
         Iterator iterator = col.iterator();
@@ -85,7 +85,7 @@ public class IteratorTest {
         col.add(123);
         col.add(456);
         col.add(new String("Bob"));
-        col.add(new Persion("Giao", 20));
+        col.add(new Person("Giao", 20));
         col.add(false);
 
         //for(集合元素的类型 局部变量 ： 集合对象)
