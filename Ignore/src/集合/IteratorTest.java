@@ -47,7 +47,33 @@ public class IteratorTest {
         while (iterator.hasNext()){
             System.out.println(iterator.next());
         }
+    }
+    
+       @Test
+    public void test2() {
 
+        //测试Iterator中的remove（）
+        Collection col = new ArrayList();
+        col.add(123);
+        col.add(456);
+        col.add(new String("Bob"));
+        col.add(new Persion("Giao", 20));
+        col.add(false);
+
+        Iterator iterator = col.iterator();
+        while (iterator.hasNext()) {
+
+            if ("Bob".equals(iterator.next())) {
+                iterator.remove();
+            }
+        }
+
+        System.out.println("===================");
+         iterator = col.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+
+        }
 
 
     }
