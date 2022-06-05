@@ -8,7 +8,7 @@ import java.util.Objects;
  * @File : User.java
  * @Software: IntelliJ IDEA
  */
-public class User {
+public class User implements Comparable{
     private String name;
     private int age;
 
@@ -61,5 +61,15 @@ public class User {
         int result = name != null ? name.hashCode() : 0;
         result = 31 * result + age;
         return result;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if (o instanceof User){
+            User user =(User) o;
+            return -this.name.compareTo(user.name);
+        }else {
+            throw new RuntimeException("输入的类型不匹配");
+        }
     }
 }

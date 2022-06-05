@@ -16,7 +16,8 @@ import java.util.*;
     
 */
 
-public class CollectionTest {
+public class
+CollectionTest {
 
     @Test
     public void test1() {
