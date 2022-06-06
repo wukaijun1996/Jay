@@ -11,7 +11,7 @@ import java.util.*;
         set接口（存储无序的，不可重复的数据）
                 HashSet,LinkedHashSet,TreeSet
    Map接口（双列集合，用来存储一对一对的数据）
-        HashMap ,LinkedHashMap,TreeMap, HashTable,Properties
+        HashMap ,LinkedHashMap,TreeMap, Hashtable,Properties
                 
     
 */
