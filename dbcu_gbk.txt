@@ -1,0 +1,90 @@
+result = isinstance(fs_drive, str) and 'fs' in fs_drive.lower()    进入shell
+
+  org_hash_list = [value] * len(org_hash_list)  替换列表
+
+pycharm有关设置：
+
+更改镜像源：https://mirrors.aliyun.com/pypi/simple/ 
+
+#-*- codeing = utf-8 -*-
+# @Time : ${DATE} ${TIME} 
+# @Author : wu
+# @File : ${NAME}.py 
+# @Software: ${PRODUCT_NAME}
+
+http://www.cssmoban.com/  #模板之家
+
+iconfont.cn    #图标
+
+https://echarts.apache.org/examples/zh/editor.html?c=bar-background    #echarts官网
+
+创建工程 django-admin.exe startproject 工程名
+判断是否成功创建 python manage.py runserver
+  指定ip:   python manage.py runserver      
+创建子应用  python manage.py startapp name
+注册子应用：  在配置文件的setiing 加入 book
+生成迁移文件,将类转换为表结构文件  python manage.py makemigrations
+执行迁移文件，执行表结构文件 这个时候数据库才有表 python manage.py migrate
+ORM :object relational mapping
+创建超级用户：python manage.py createsuperuser 
+重置密码：python manage.py changepassword
+
+
+下载git :https://git-scm.com/download/win
+$ git clone git@github.com:xxx.git 的形式就可以用git push
+https://github.com/wukaijun1996/begining.git
+git clone git@github.com/wukaijun1996/begining.git
+git clone 链接   #将仓库复制到本机电脑
+git config user.name wukaijun
+git config user.email 1172917145@qq.com
+git status
+git add .
+git commit -m "备注"
+git push
+[user]
+	name = wukaijun
+	email = 1172917145@qq.com
+
+
+
+pip install mysqlclient -i https://mirrors.aliyun.com/pypi/simple/
+
+
+
+修改cmd窗口字符编码为UTF-8，命令行中执行：chcp 65001
+切换回中文：chcp 936
+alt + enter pycharm快速导入模块
+
+mysql -u root -p
+ps  123456
+开启： net start MySql2021
+关闭：net stop MySql2021
+create database book_1 charset utf8;   #创建数据库
+use book_1   #用到哪一个数据库
+show tables;  #用到哪一个表
+desc peopleinfo;  #表的详细信息
+select * from bookinfo;  查看表里面的数据
+
+
+#快速验证 增删改查 的结果
+python manage.py shell
+>>> from book.models import BookInfo
+>>> BookInfo.objects.all()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
