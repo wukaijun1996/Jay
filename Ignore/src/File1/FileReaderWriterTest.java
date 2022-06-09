@@ -14,12 +14,83 @@ import java.io.IOException;
  * 3.流的角色：节点流，处理流
  * <p>
  * 二，流的体系结构
- * 抽象基类          节点流（或文件流）      缓冲流(处理流的一种)
- * InputStream       FileInputStream     BufferedInputStream
- * OutputStream      FileOutputStream    BufferedOutputStream
- * Reader            FileReader          BufferedReader
- * Writer            FileWriter          BufferedWriter
+ * 抽象基类                 节点流（或文件流）      缓冲流(处理流的一种)
+ * InputStream（字节流）       FileInputStream     BufferedInputStream
+ * OutputStream （字节流）     FileOutputStream    BufferedOutputStream
+ * Reader  （字符流）          FileReader          BufferedReader
+ * Writer  （字符流）          FileWriter          BufferedWriter
  */
+
+    /*
+    文件的复制；
+    不能使用字符流来处理图片等字节数据
+     */
+    @Test
+    public void testFileReaderFileWriter() {
+
+        FileReader fileReader = null;
+        FileWriter fileWriter = null;
+        try {
+            File srcFile = new File("hello.txt");
+            File destFile = new File("hello2.txt");
+
+            fileReader = new FileReader(srcFile);
+            fileWriter = new FileWriter(destFile);
+
+            char[] cbuf = new char[5];
+            int len;//记录每次读入到cbuf数组中的字符的个数
+            while ((len = fileReader.read(cbuf)) != -1){
+                fileWriter.write(cbuf,0,len);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (fileReader!= null){
+                        fileReader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                if (fileWriter!= null){
+                    fileWriter.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+
+    }
+
+    //从内存中写出数据到硬盘的文件里
+    @Test
+    public void testFileWriter(){
+
+        FileWriter fileWriter = null; //append （true）在文件末尾追加
+        try {
+            File file = new File("hello1.txt");
+            fileWriter = new FileWriter(file,true);
+
+            fileWriter.write("I have a dream!\n");
+            fileWriter.write("you need to have a dream!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fileWriter != null){
+
+                try {
+                    fileWriter.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+    }
 
 
 public class FileReaderWriterTest {
