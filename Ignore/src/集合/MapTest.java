@@ -142,6 +142,7 @@ public class MapTest {
 
         //get
         System.out.println(map.get(445));
+        System.out.println(map.get(45));
 
         //containsKey
         System.out.println(map.containsKey("BB"));
