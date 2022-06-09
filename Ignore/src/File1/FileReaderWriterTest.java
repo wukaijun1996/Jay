@@ -2,10 +2,7 @@ package src.File1;
 
 import org.junit.Test;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * 一，流的分类：
@@ -20,6 +17,8 @@ import java.io.IOException;
  * Reader  （字符流）          FileReader          BufferedReader
  * Writer  （字符流）          FileWriter          BufferedWriter
  */
+
+public class FileReaderWriterTest {
 
     /*
     文件的复制；
@@ -93,7 +92,7 @@ import java.io.IOException;
     }
 
 
-public class FileReaderWriterTest {
+
 
     //对read()操作升级，使用read()的重载方法
     @Test
