@@ -1,3 +1,5 @@
+package src.File1;
+
 import org.junit.Test;
 
 import java.io.File;
