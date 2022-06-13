@@ -1,9 +1,11 @@
+package src.网络Socket_TCP_UDP;
+
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-public class InetAddressTest {
+public class w01_InetAddressTest {
 
     public static void main(String[] args) throws UnknownHostException {
 

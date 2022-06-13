@@ -1,4 +1,11 @@
-import com.sun.source.tree.Scope;
+package src.网络Socket_TCP_UDP;
+
+/**
+ * @Time : 2022/6/13 20:34
+ * @Author : wu
+ * @File : w03_TCPTest2.java
+ * @Software: IntelliJ IDEA
+ */
 import org.junit.Test;
 
 import java.io.*;
@@ -10,7 +17,7 @@ import java.net.UnknownHostException;
 /*
 客户端发送文件给服务端，服务端将文件保存到本地
  */
-public class TCPTest2 {
+public class w03_TCPTest2 {
 
     @Test
     public void client() throws IOException {
