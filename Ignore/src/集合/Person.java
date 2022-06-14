@@ -40,7 +40,7 @@ public class Person {
 
     @Override
     public boolean equals(Object o) {
-        System.out.println("Person equals Method--giao");
+        System.out.println("src.反射.Person equals Method--giao");
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person persion = (Person) o;

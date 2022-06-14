@@ -1,3 +1,5 @@
+package src.反射;
+
 import org.junit.Test;
 
 import java.lang.reflect.Constructor;
@@ -75,7 +77,7 @@ public class ReflectionTest {
         System.out.println(personClass2);
 
         //方式3 调用class的静态方法 调用forName(String classPath) (用的比较多)
-        Class<?> personClass3 = Class.forName("Person");
+        Class<?> personClass3 = Class.forName("src.反射.Person");
         Class<?> personClass4 = Class.forName("java.lang.String");
         System.out.println(personClass3);
         System.out.println(personClass4);
@@ -85,7 +87,7 @@ public class ReflectionTest {
 
         //方式4  使用类的加载器：Classloader
         ClassLoader classLoader = ReflectionTest.class.getClassLoader();
-        Class<?> personClass5 = classLoader.loadClass("Person");
+        Class<?> personClass5 = classLoader.loadClass("src.反射.Person");
         System.out.println(personClass5);
 
         System.out.println(personClass1 == personClass5);

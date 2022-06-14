@@ -1,3 +1,5 @@
+package src.反射;
+
 import org.junit.Test;
 
 import java.util.Random;
@@ -35,7 +37,7 @@ public class w03_NewInstanceTest {
                 classPath = "java.lang.object";
                 break;
             case 2:
-                classPath = "Person";
+                classPath = "src.反射.Person";
                 break;
         }
 

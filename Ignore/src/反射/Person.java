@@ -1,3 +1,5 @@
+package src.反射;
+
 public class Person {
 
     private String name;
@@ -17,7 +19,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "src.反射.Person{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
