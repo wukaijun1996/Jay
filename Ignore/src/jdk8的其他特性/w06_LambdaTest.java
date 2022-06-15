@@ -1,3 +1,5 @@
+package src.jdk8的其他特性;
+
 import org.junit.Test;
 
 import java.util.Comparator;
@@ -5,7 +7,7 @@ import java.util.Comparator;
 /*
 Lambda表达式的使用举例
  */
-public class w03_LambdaTest {
+public class w06_LambdaTest {
 
     @Test
     public void test1(){

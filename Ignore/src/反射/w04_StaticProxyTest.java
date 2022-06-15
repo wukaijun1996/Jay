@@ -1,4 +1,4 @@
-/*
+package src.反射;/*
 静态代理举例
  */
 
@@ -30,7 +30,7 @@ class NikeClothFactory implements ClothFactory {
     }
 }
 
-public class w01_StaticProxyTest {
+public class w04_StaticProxyTest {
 
     public static void main(String[] args) {
 //        NikeClothFactory nikeClothFactory = new NikeClothFactory();

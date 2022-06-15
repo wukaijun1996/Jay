@@ -1,4 +1,4 @@
-
+package src.反射;
 /*
 动态代理举例
  */
@@ -60,7 +60,7 @@ class MyInvocationHandler implements InvocationHandler{
     }
 }
 
-public class w02_ProxyTest {
+public class w05_ProxyTest {
     public static void main(String[] args) {
         SuperMan superMan = new SuperMan();
         //proxyInstance 代理类的对象

@@ -1,3 +1,5 @@
+package src.jdk8的其他特性;
+
 import org.junit.Test;
 
 
@@ -16,7 +18,7 @@ import java.util.function.Predicate;
 
 
  */
-public class w05_LambdaTest2 {
+public class w08_LambdaTest2 {
 
     @Test
     public void teest1() {

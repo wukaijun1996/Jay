@@ -1,3 +1,5 @@
+package src.jdk8的其他特性;
+
 import org.junit.Test;
 
 import java.util.Comparator;
@@ -16,7 +18,7 @@ Lambda表达式的使用
 4.Lambda表达式的本质：作为接口的实例
 
  */
-public class w04_LambdaTest1 {
+public class w07_LambdaTest1 {
 
     //无参，无返回值
     @Test
